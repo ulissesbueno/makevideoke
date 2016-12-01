@@ -1,0 +1,59 @@
+@font-face {
+     font-family: font;
+     /*src: url('fonts/Beta54.ttf');*/
+     /*src: url('fonts/Blenda Script.otf');*/
+     /*src: url('fonts/Cagliostro-Regular.ttf');*/
+     /*src: url('fonts/CherryCreamSoda.ttf');*/
+     /*src: url('fonts/GrandHotel-Regular.ttf');*/
+     /*src: url('fonts/KTF-Roadstar.ttf');*/
+     /*src: url('fonts/MouseMemoirs-Regular.ttf');*/
+     /*src: url('fonts/Oregano-Italic.ttf');*/
+     /*src: url('fonts/Oregano-Regular.ttf');*/
+     /*src: url('fonts/ADAM.CG PRO.otf');*/
+     src: url('fonts/LeagueSpartan-Bold.otf');
+}
+
+*{
+	font-family: font;
+	/*font-weight: bold;*/
+	font-size: 20px;
+	text-transform: uppercase;
+}
+
+html,body{
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+body{
+	background-image: url('images/background.jpg');
+	background-size: 100%;
+}
+
+#lyric{
+	text-align: center;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;	
+}
+
+#lyric .line{
+	margin-bottom: 9px;
+	display: none;
+}
+
+#lyric .strech{
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+}
+
+#lyric .line span {
+	color: #DBDB95;
+	text-shadow: -1px 1px 5px #000, 1px -1px 5px #000;
+}
+
+#lyric .line span.active {
+	color: #40E4F9;
+}

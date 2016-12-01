@@ -1,0 +1,42 @@
+{
+	"info":{"name":"O Mundo da Voltas"}, 
+	"lyric":[
+				{	"sec":"5",
+					"strech":[
+								{	"sec":"8",
+									"text":"{Quando eu mais }{precisei:10}",
+									"notes":""
+								},
+								{	"sec":"12",
+									"text":"{Nunca mais }{eu vi:13}{ voce:14}",
+									"notes":""
+								},	
+								{	"sec":"16",
+									"text":"{Foi dificil }{esquecer:17}",
+									"notes":""
+								}
+							]
+					
+				},
+
+				{	"sec":"21",
+					"strech":[
+								{	"sec":"23",
+									"text":"{Tanto faz }{nem pensei:24}",
+									"notes":""
+								},
+								{	"sec":"26",
+									"text":"{So o tempo}{ ira:27}{ dizer:28}",
+									"notes":""
+								},	
+								{	"sec":"30",
+									"text":"{Nao tem como}{ entender:31}",
+									"notes":""
+								}
+							]
+					
+				}
+
+				
+			]	
+}
