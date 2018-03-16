@@ -1,8 +1,41 @@
 <link rel="stylesheet" type="text/css" href="lyric.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="jcanvas.js"></script>
 <script type="text/javascript">
+	var tab_drum = '';
 	$(function(){
+		LoadTabDrum()
+		window.resize(function(){
+			Resizable()
+		})
+	})
+
+	function Resizable(){
+		$('#lines canvas ').css({
+			"width" : $('#lines').width(), 
+			"height" : $('#lines').height()
+		})
+	}
+
+	function LoadTabDrum(){
+		$.ajax({
+			datatype:'JSON',
+			url:'tab_drum.json',
+			success : function( data ){
+
+				DrawLines()
+
+				tab_drum = data;
+				LoadLyric()
+			},
+			error: function( error ){
+				
+			}
+		})			
+	}
+
+	function LoadLyric(){
 		$.ajax({
 			datatype:'JSON',
 			url:'letra.json',
@@ -14,8 +47,48 @@
 			error: function( error ){
 				
 			}
-		})		
-	})
+		})			
+	}
+
+	function DrawLines(){
+		var lines = $("<div id='lines'>")
+		$('body').append( lines );
+		var t = 8;
+		var h = 200;
+
+		lines.append("<div class='backend'>")
+		lines.find('.backend').css({
+			"background" : "#000",
+			//"opacity" : "0.5",
+			"width" : "100%",
+			"height" : "100%"
+		})
+		lines.css( {
+			"width" : "100%",
+			"height" : h,
+			"position" : "absolute",
+			"top" : "50px"
+		});
+
+		lines.append("<canvas ></canvas>")
+		var canvas = lines.find("canvas");
+		canvas.css({ "width" : lines.width(), "height" : lines.height(), position: "absolute", "top": "0px" })
+
+		var l = 0;
+		while( l < t ){
+
+			py = l * ( h / t )  ;
+
+			canvas.drawLine({
+			  strokeStyle: '#fff',
+			  strokeWidth: 2,
+			  x1: 0, y1: py,
+			  x2: canvas.width(), y2: py
+			});
+
+			l ++;
+		}		
+	}
 
 	function convert_lyric( lyric ){
 
@@ -38,6 +111,7 @@
 	function Init(data){
 
 		var lyric = convert_lyric( data.lyric );
+		var rpm = tab_drum.rpm;
 
 		$("#player").trigger('load').trigger('play');
 		$("#player").bind("timeupdate",function(){
@@ -73,6 +147,8 @@
         		}
     			
     		}
+
+    		
         	
         	//$('#time').html( sec.toFixed(2) );
     	});
